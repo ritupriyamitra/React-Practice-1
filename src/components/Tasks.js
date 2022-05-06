@@ -1,7 +1,7 @@
 import React from 'react'
 import Task from './Task'
 
-const Tasks = ({tasks, toggleReminder}) =>{
+const Tasks = ({tasks, toggleReminder , deleteTask}) =>{
    
 
 
@@ -12,6 +12,7 @@ const Tasks = ({tasks, toggleReminder}) =>{
             key={task.id}
             task={task}            
             toggleReminder={toggleReminder}
+            deleteTask= {deleteTask}
           />
         ))}
       </>

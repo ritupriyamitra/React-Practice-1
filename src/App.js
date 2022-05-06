@@ -6,6 +6,8 @@ import Tasks from './components/Tasks'
 import React, { useState } from 'react'
 
 function App() {
+
+  const [showAddTasks,setShowAddTasks] = useState(false)
   const [tasks,setTask] = useState([
     {
         id:1,
@@ -27,6 +29,14 @@ function App() {
     }
 ])
 
+//toggle add and close button 
+
+const changeShowAddTasks = () =>{
+  setShowAddTasks(!showAddTasks)
+
+}
+
+
 //Add Task
 
 const AddTask =(task)=>{
@@ -35,10 +45,16 @@ const AddTask =(task)=>{
   setTask([...tasks,newTask])
 }
 
+//delete task
+
+const deleteTask =(id) =>{
+  setTask(tasks.filter((task)=>task.id != id))
+}
+
 
   // Toggle Reminder
   const toggleReminder = (id) =>{
-    alert('ss')
+    
     setTask(
       tasks.map((task) =>
       task.id===id ? {...task,reminder:!task.reminder } : task 
@@ -51,9 +67,9 @@ const AddTask =(task)=>{
   return (
   <div className='container'>
    
-     <Header/>
-     <AddFormTask onAdd={AddTask}/>
-     <Tasks tasks={tasks} toggleReminder={toggleReminder}/>
+     <Header showAddTasks={showAddTasks} changeShowAddTasks={changeShowAddTasks}/>
+     {showAddTasks&&<AddFormTask onAdd={AddTask} />}
+     <Tasks tasks={tasks} toggleReminder={toggleReminder} deleteTask={deleteTask}/>
     
   </div> 
   
