@@ -29,8 +29,10 @@ function App() {
 
 //Add Task
 
-const AddTask =()=>{
-console.log('submit clicked')
+const AddTask =(task)=>{
+  const id = Math.floor(Math.random()*10000) +1
+  const newTask ={id,...task}
+  setTask([...tasks,newTask])
 }
 
 
@@ -50,7 +52,7 @@ console.log('submit clicked')
   <div className='container'>
    
      <Header/>
-     <AddFormTask AddTask={AddTask}/>
+     <AddFormTask onAdd={AddTask}/>
      <Tasks tasks={tasks} toggleReminder={toggleReminder}/>
     
   </div> 
