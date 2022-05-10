@@ -68,11 +68,23 @@ const fetchingTask = async(id)=>{
 
 //Add Task
 
-const AddTask =(task)=>{
-  const id = Math.floor(Math.random()*10000) +1
-  const newTask ={id,...task}//Imp JS concept spread operator
-  setTask([...tasks,newTask])//Imp js concept operator
-}
+const AddTask = async (task) => {
+  //const id = Math.floor(Math.random()*10000) +1
+ //const newTask ={id,...task}//Imp JS concept spread operator
+ // setTask([...tasks,newTask])//Imp js concept operator
+ const data = await fetch('http://localhost:7000/tasks', {
+    method:'POST',
+    headers:{
+      'Content-type' : 'application/json',
+      
+  },
+
+  body: JSON.stringify(task),
+  } )
+  const res = await data.json()
+  setTask([...tasks,res])
+ }
+
 
 //delete task
 
