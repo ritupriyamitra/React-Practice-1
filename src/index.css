@@ -91,3 +91,36 @@ body {
 .btn:active {
   transform: scale(0.98);
 } 
+footer {
+  margin-top: 30px;
+  text-align: center;
+}
+/* 
+.flex-test{
+  display: inline-flex;
+  background-color: #000;
+
+}
+
+.outline{
+  border:1px solid red;
+  width:60px;
+  height: 50px;
+}
+
+.aaa{
+ background-color:bisque;
+
+}
+.bbb{
+  background-color: aqua;
+ 
+}
+.ccc{
+  background-color: bisque;
+  
+}
+.ddd{
+ background-color: aquamarine;
+ 
+} */
